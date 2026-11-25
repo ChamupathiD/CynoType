@@ -32,6 +32,30 @@ Browse all versions and SHA-256 checksums on the [GitHub Releases page](https://
 
 ---
 
+## Interface & Features
+
+<p align="center">
+  <img src="docs/screenshots/code-mode.png" alt="CynoType Code Mode — Smart IDE Indentation UI" width="760" />
+</p>
+<p align="center"><em>Code Mode — Smart IDE indentation tracking, Auto-Detect indent, Tab width selector, and natural speed tuning.</em></p>
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="docs/screenshots/active-typing.png" alt="CynoType Active Typing with live progress bar and Stop Typing action" width="100%" />
+      <br />
+      <sub><strong>Live Progress &amp; Instant Stop</strong> — Subtle progress hairline, live line status, and global <code>Esc</code> / <code>F8</code> emergency stop.</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="docs/screenshots/plain-text-mode.png" alt="CynoType Plain Text Mode with minimal collapsed controls" width="100%" />
+      <br />
+      <sub><strong>Plain Text Mode</strong> — IDE indentation controls collapse automatically for distraction-free verbatim typing.</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## Overview
 
 **CynoType** combines the Smart IDE indentation engine from [`chanul212/Auto-Typer`](https://github.com/chanul212/Auto-Typer) (v2) with a calm, minimal interface inspired by Apple's design principles, native standalone installers for macOS and Windows, and a built-in **MCP server** for AI-controlled browser and desktop typing.

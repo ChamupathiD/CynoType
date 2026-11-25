@@ -36,6 +36,10 @@ Switch modes anytime using the **Code | Plain Text** segmented control in the to
 ### Code Mode (Smart IDE Indentation)
 Best for **VS Code, Cursor, PyCharm, IntelliJ, Xcode, Replit, CodeSandbox, and browser Monaco/CodeMirror editors**.
 
+<p align="center">
+  <img src="screenshots/code-mode.png" alt="CynoType Code Mode UI" width="680" />
+</p>
+
 Modern IDEs automatically indent new lines after block openers (`:`, `{`, `(`, `[`) and keep the previous line's indentation on Enter. Standard auto-typers blindly re-type all leading spaces, causing indentation to double on every line.
 
 CynoType's Smart IDE Mode prevents this by tracking the editor's indentation state line by line:
@@ -54,11 +58,19 @@ CynoType's Smart IDE Mode prevents this by tracking the editor's indentation sta
 ### Plain Text Mode (Verbatim)
 Best for **Google Docs, Notion, Notes, Notepad, email clients, chat apps, and forms**.
 
+<p align="center">
+  <img src="screenshots/plain-text-mode.png" alt="CynoType Plain Text Mode UI" width="680" />
+</p>
+
 Types every character, space, tab, and newline verbatim with natural cadence — never modifying indentation or pressing `Esc`.
 
 ---
 
 ## 3. Speed, Rhythm & Window Behavior
+
+<p align="center">
+  <img src="screenshots/active-typing.png" alt="CynoType Active Typing progress bar and Stop Typing button" width="680" />
+</p>
 
 - **Typing Speed (`10 ms` – `250 ms`)**: Controls base delay per keystroke and displays the approximate typing speed in WPM.
 - **Natural rhythm**: Adds realistic Gaussian timing jitter plus brief pauses after sentence endings (`.`, `!`, `?`), clauses (`,`, `;`, `:`, `-`), and line breaks.
