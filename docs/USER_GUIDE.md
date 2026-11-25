@@ -29,9 +29,13 @@ macOS restricts apps from synthesizing keystrokes or listening for global stop s
 
 ---
 
-## 2. Typing Modes
+## 2. Typing Modes & Liquid Glass Appearance
 
-Switch modes anytime using the **Code | Plain Text** segmented control in the top-right corner of the window.
+Switch modes anytime using the floating **Code | Plain Text** Liquid Glass capsule in the top-right corner, or click the adjacent moon/sun glass orb to switch between **Light Liquid Glass** and **Dark Liquid Glass** (your preference is saved automatically and adapts native macOS window vibrancy live).
+
+<p align="center">
+  <img src="screenshots/dark-glass-mode.png" alt="CynoType Dark Liquid Glass UI" width="680" />
+</p>
 
 ### Code Mode (Smart IDE Indentation)
 Best for **VS Code, Cursor, PyCharm, IntelliJ, Xcode, Replit, CodeSandbox, and browser Monaco/CodeMirror editors**.

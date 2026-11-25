@@ -91,6 +91,12 @@ def run_macos_app():
     WKWebView = wk_ns["WKWebView"]
     WKWebViewConfiguration = wk_ns["WKWebViewConfiguration"]
 
+    class TitlebarDragView(AppKit.NSView):
+        """Invisible top titlebar overlay so the seamless Liquid Glass window drags natively."""
+
+        def mouseDownCanMoveWindow(self):
+            return True
+
     class CynoAppDelegate(AppKit.NSObject):
         def init(self):
             self = objc.super(CynoAppDelegate, self).init()
@@ -212,17 +218,19 @@ def run_macos_app():
             self.window.setAppearance_(
                 AppKit.NSAppearance.appearanceNamed_(AppKit.NSAppearanceNameAqua)
             )
+            self.window.setOpaque_(False)
+            self.window.setBackgroundColor_(AppKit.NSColor.clearColor())
             self.window.setTitlebarAppearsTransparent_(True)
             self.window.setTitleVisibility_(AppKit.NSWindowTitleHidden)
             self.window.setMovableByWindowBackground_(True)
             self.window.setMinSize_(Foundation.NSMakeSize(700.0, 620.0))
             self.window.setDelegate_(self)
 
-            # Native macOS frosted vibrancy backdrop
+            # Native macOS Liquid Glass vibrancy backdrop (blurs wallpaper/windows behind app)
             vev = AppKit.NSVisualEffectView.alloc().initWithFrame_(
                 Foundation.NSMakeRect(0, 0, width, height)
             )
-            vev.setMaterial_(AppKit.NSVisualEffectMaterialUnderWindowBackground)
+            vev.setMaterial_(AppKit.NSVisualEffectMaterialPopover)
             vev.setBlendingMode_(AppKit.NSVisualEffectBlendingModeBehindWindow)
             vev.setState_(AppKit.NSVisualEffectStateActive)
             vev.setAutoresizingMask_(
@@ -230,12 +238,12 @@ def run_macos_app():
             )
             self.window.setContentView_(vev)
 
-            # WKWebView mounted cleanly below the 32px native draggable titlebar strip
+            # Full-bleed WKWebView so Liquid Glass flows seamlessly behind macOS traffic lights
             cfg = WKWebViewConfiguration.alloc().init()
             cfg.userContentController().addScriptMessageHandler_name_(self, "bridge")
 
             self.webview = WKWebView.alloc().initWithFrame_configuration_(
-                Foundation.NSMakeRect(0, 0, width, height - titlebar_strip), cfg
+                Foundation.NSMakeRect(0, 0, width, height), cfg
             )
             self.webview.setValue_forKey_(False, "drawsBackground")
             self.webview.setAutoresizingMask_(
@@ -243,6 +251,15 @@ def run_macos_app():
             )
             vev.addSubview_(self.webview)
             self.webview.loadHTMLString_baseURL_(self._build_html(), None)
+
+            # Transparent native drag strip across the top 32px titlebar
+            drag_strip = TitlebarDragView.alloc().initWithFrame_(
+                Foundation.NSMakeRect(0, height - titlebar_strip, width, titlebar_strip)
+            )
+            drag_strip.setAutoresizingMask_(
+                AppKit.NSViewWidthSizable | AppKit.NSViewMinYMargin
+            )
+            vev.addSubview_(drag_strip)
 
             self.window.center()
             self.window.makeKeyAndOrderFront_(None)
@@ -349,6 +366,18 @@ def run_macos_app():
 
             if action == "ui_ready":
                 self._refresh_permissions(prompt_if_missing=False)
+
+            elif action == "set_theme":
+                theme = str(body.get("theme", "light"))
+                if self.window is not None:
+                    name = (
+                        AppKit.NSAppearanceNameDarkAqua
+                        if theme == "dark"
+                        else AppKit.NSAppearanceNameAqua
+                    )
+                    self.window.setAppearance_(
+                        AppKit.NSAppearance.appearanceNamed_(name)
+                    )
 
             elif action == "check_permissions":
                 self._refresh_permissions(prompt_if_missing=True)

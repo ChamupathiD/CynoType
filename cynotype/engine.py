@@ -14,7 +14,7 @@ from typing import Callable, Optional, Protocol, Tuple
 IS_MAC = sys.platform == "darwin"
 IS_WIN = sys.platform.startswith("win")
 APP_NAME = "CynoType"
-APP_VERSION = "2.0.0"
+APP_VERSION = "2.1.0"
 
 _MAC_KEYCODE_ESC = 53
 _MAC_KEYCODE_F8 = 100

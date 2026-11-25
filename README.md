@@ -34,22 +34,29 @@ Browse all versions and SHA-256 checksums on the [GitHub Releases page](https://
 
 ## Interface & Features
 
-<p align="center">
-  <img src="docs/screenshots/code-mode.png" alt="CynoType Code Mode — Smart IDE Indentation UI" width="760" />
-</p>
-<p align="center"><em>Code Mode — Smart IDE indentation tracking, Auto-Detect indent, Tab width selector, and natural speed tuning.</em></p>
-
 <table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="docs/screenshots/code-mode.png" alt="CynoType Light Liquid Glass — Code Mode UI" width="100%" />
+      <br />
+      <sub><strong>Light Liquid Glass (Code Mode)</strong> — Translucent frosted glass panels over native macOS vibrancy with Smart IDE indentation.</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="docs/screenshots/dark-glass-mode.png" alt="CynoType Dark Liquid Glass — Code Mode UI" width="100%" />
+      <br />
+      <sub><strong>Dark Liquid Glass</strong> — Smoked obsidian glass with specular rim lighting, toggled with one click from the header orb.</sub>
+    </td>
+  </tr>
   <tr>
     <td align="center" width="50%">
       <img src="docs/screenshots/active-typing.png" alt="CynoType Active Typing with live progress bar and Stop Typing action" width="100%" />
       <br />
-      <sub><strong>Live Progress &amp; Instant Stop</strong> — Subtle progress hairline, live line status, and global <code>Esc</code> / <code>F8</code> emergency stop.</sub>
+      <sub><strong>Live Progress &amp; Instant Stop</strong> — Luminous progress hairline, live line counter, and global <code>Esc</code> / <code>F8</code> emergency stop.</sub>
     </td>
     <td align="center" width="50%">
       <img src="docs/screenshots/plain-text-mode.png" alt="CynoType Plain Text Mode with minimal collapsed controls" width="100%" />
       <br />
-      <sub><strong>Plain Text Mode</strong> — IDE indentation controls collapse automatically for distraction-free verbatim typing.</sub>
+      <sub><strong>Plain Text Mode</strong> — IDE indentation controls collapse smoothly for distraction-free verbatim typing.</sub>
     </td>
   </tr>
 </table>
@@ -66,7 +73,7 @@ Browse all versions and SHA-256 checksums on the [GitHub Releases page](https://
 - **Plain Text Mode** — Verbatim line-by-line typing preserving exact spacing, tabs, and line endings.
 - **Auto-Detect Indentation** — Analyzes pasted code for Tabs, 2-space (JS/TS/Web), or 4-space (Python/Swift/Java) indentation automatically.
 - **Natural Human Rhythm** — Gaussian keystroke jitter plus realistic pauses at punctuation, clauses, and line breaks.
-- **Calm, Native UI** — Native macOS Cocoa window with vibrancy (`WKWebView`) and native Windows Edge WebView2 (`pywebview`) sharing one cohesive Apple-inspired UI.
+- **macOS Liquid Glass UI** — Native full-bleed macOS Cocoa window (`NSVisualEffectView` + `WKWebView`) and Windows Edge WebView2 (`pywebview`) featuring translucent Liquid Glass panels, specular rim highlights, concentric capsule controls, and one-click **Light / Dark Liquid Glass** appearance switching.
 - **Global Emergency Stop** — Instant `Esc` or `F8` stop via macOS Quartz Event Tap (ignoring synthetic `Esc` presses used to close autocomplete popups) and global `F8` on Windows.
 - **MCP Server + Browser Control** — 14 Model Context Protocol tools allowing AI assistants to inspect editable fields and type via Chrome DevTools Protocol (CDP) or OS keystrokes with domain allowlists, password-field protection, and local audit logging.
 

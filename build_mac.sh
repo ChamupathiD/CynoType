@@ -9,7 +9,7 @@ set -e
 cd "$(dirname "$0")"
 
 APP_NAME="CynoType"
-VERSION="2.0.0"
+VERSION="2.1.0"
 BUNDLE_ID="com.cynotype.autotyper"
 DMG_NAME="CynoType-Installer.dmg"
 VOL_NAME="Install CynoType"
